@@ -2,6 +2,7 @@ package com.playground.controller;
 
 import com.playground.model.Item;
 import com.playground.service.ItemService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,7 @@ public class ItemController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Item create(@RequestBody Item item) {
         return service.save(item);
     }
